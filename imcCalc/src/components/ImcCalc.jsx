@@ -2,15 +2,30 @@ import "./ImcCalc.css";
 import Button from "./Button"; 
 import { useState } from "react";
 
-const ImcCalc = () => {
-    const [height, setHeight]=useState("");
-    const [weight, setWeight]=useState("");
+const ImcCalc = ({calcImc}) => {
+const [height, setHeight]=useState("");
+const [weight, setWeight]=useState("");
 
-    const clearForm = (e) => {
+const clearForm = (e) => {
         e.preventDefault();
         setWeight("");
         setHeight("");
     };
+
+const validDigits = (text) => {
+return text.replace(/[^0-9.,]/g, "");
+};
+
+    const handleHeightChange = (e) => {
+        const updatedValue = validDigits(e.target.value)
+
+        setHeight(updatedValue);
+    }
+        const handleWeightChange = (e) => {
+        const updatedValue = validDigits(e.target.value)
+
+        setWeight(updatedValue);
+    }
 
   return (
     <div id="calc-container">
@@ -24,7 +39,7 @@ const ImcCalc = () => {
                     name="height" 
                     id="height" 
                     placeholder="Example 1.75" 
-                    onChange={(e) => setHeight(e.target.value)}
+                    onChange={(e) => handleHeightChange(e)}
                     value={height}
                     />
                 
@@ -36,12 +51,12 @@ const ImcCalc = () => {
                     name="weight"
                     id="weight"
                     placeholder="Example 70.5"
-                    onChange={(e) => setWeight(e.target.value)}
+                    onChange={(e) => handleWeightChange(e)}
                     value={weight}
                     />
                 </div>
                 <div className="action-control">
-                    <Button id="calc-btn" text="Calculate"/>
+                    <Button id="calc-btn" text="Calculate" action={(e) => calcImc(e, height, weight)}/>
                     <Button id="clear-btn" text="Reset" action={clearForm}/>
 
                 </div>

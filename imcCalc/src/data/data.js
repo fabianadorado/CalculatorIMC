@@ -1,38 +1,42 @@
-export const imcData = [
+export const data = [
   {
     min: 0,
     max: 18.4,
-    classificacao: "Abaixo do peso",
-    obesidade: "0"
+    classification: "Less than 18.5",
+    info: "Underweight",
+    obesity: "0",
+    infoClass: "medium",
   },
   {
     min: 18.5,
     max: 24.9,
-    classificacao: "Peso normal",
-    obesidade: "0"
+    classification: "Between 18.5 and 24.9",
+    info: "Normal weight",
+    obesity: "0",
+    infoClass: "good",
   },
   {
     min: 25,
     max: 29.9,
-    classificacao: "Sobrepeso",
-    obesidade: "I"
+    classification: "Between 25.0 and 29.9",
+    info: "Overweight",
+    obesity: "I",
+    infoClass: "low",
   },
   {
     min: 30,
-    max: 34.9,
-    classificacao: "Obesidade grau I",
-    obesidade: "I"
-  },
-  {
-    min: 35,
     max: 39.9,
-    classificacao: "Obesidade grau II",
-    obesidade: "II"
+    classification: "Between 30.0 and 39.9",
+    info: "Obesity",
+    obesity: "II",
+    infoClass: "medium",
   },
   {
     min: 40,
-    max: Infinity,
-    classificacao: "Obesidade grau III",
-    obesidade: "III"
-  }
+    max: 99,
+    classification: "Greater than 40.0",
+    info: "Severe obesity",
+    obesity: "III",
+    infoClass: "high",
+  },
 ];
